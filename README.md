@@ -1,14 +1,14 @@
 # PROG 02: Represent!
 
-Briefly describe your app here.
+This app, Smart Elect, allows you to view the representatives for your current location or for a given ZIP code, letting you know who represents YOU in Congress.
 
 ## Authors
 
-FirstName LastName ([your_email@berkeley.edu](mailto:your_email@berkeley.edu))
+Brandon chinn ([brandonchinn178@berkeley.edu](mailto:brandonchinn178@berkeley.edu))
 
 ## Demo Video
 
-See [your demo video title here] (https://link_to_your_video)
+See [my demo video here]()
 
 ## Screenshots
 
@@ -16,5 +16,9 @@ See [your demo video title here] (https://link_to_your_video)
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Any other support
+Huge thanks to the following packages/webpages that helped make my app what it is:
+
+- joleary and the CS 160 staff for the Phone/Watch communication code
+- The [Ion](https://github.com/koush/ion) library that simplifies fetching images from the internet
+- [http://jasonmcreynolds.com/?p=388](http://jasonmcreynolds.com/?p=388) for the shake detection code
+- And, of course, the Android tutorials and API that are both frustratingly unclear and helpful :D
