@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$USER_HOME$/Dropbox/Berkeley/cs160/prog2/Phase B/App/App.iml" filepath="$USER_HOME$/Dropbox/Berkeley/cs160/prog2/Phase B/App/App.iml" />
+      <module fileurl="file://$USER_HOME$/Dropbox/Berkeley/cs160/prog2/Phase B/App/mobile/mobile.iml" filepath="$USER_HOME$/Dropbox/Berkeley/cs160/prog2/Phase B/App/mobile/mobile.iml" />
+      <module fileurl="file://$USER_HOME$/Dropbox/Berkeley/cs160/prog2/Phase B/App/wear/wear.iml" filepath="$USER_HOME$/Dropbox/Berkeley/cs160/prog2/Phase B/App/wear/wear.iml" />
+    </modules>
+  </component>
+</project>

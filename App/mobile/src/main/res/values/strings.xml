@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Smart Elect</string>
+    <string name="app_title">Smart Elect!</string>
+    <string name="begin_text">To begin:</string>
+    <string name="or_text">or</string>
+    <string name="current_location">Use current location</string>
+    <string name="zip_code">Use ZIP code</string>
+    <string name="zip_code_error">Must input a valid ZIP code.</string>
+    <string name="committees_header">Committees</string>
+    <string name="recent_bills_header">Recent Bills</string>
+    <string name="party_label">Party: </string>
+    <string name="term_end_label">End of Term: </string>
+</resources>
