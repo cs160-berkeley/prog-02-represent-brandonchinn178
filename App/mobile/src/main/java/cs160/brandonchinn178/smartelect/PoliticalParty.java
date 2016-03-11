@@ -8,9 +8,9 @@ public enum PoliticalParty {
 
     public static PoliticalParty getEnum(String party) {
         switch (party) {
-            case "Democrat":
+            case "D":
                 return DEMOCRAT;
-            case "Republican":
+            case "R":
                 return REPUBLICAN;
             default:
                 return INDEPENDENT;

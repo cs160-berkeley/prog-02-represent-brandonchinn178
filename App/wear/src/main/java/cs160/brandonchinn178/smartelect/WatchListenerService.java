@@ -1,6 +1,7 @@
 package cs160.brandonchinn178.smartelect;
 
 import android.content.Intent;
+import android.util.Log;
 
 import com.google.android.gms.wearable.MessageEvent;
 import com.google.android.gms.wearable.WearableListenerService;
@@ -12,11 +13,12 @@ import java.nio.charset.StandardCharsets;
  */
 public class WatchListenerService extends WearableListenerService {
     private static final String START_CANDIDATES = "/start_candidates";
-    private static final String START_VOTES = "/start_votes";
+    public static final String PHOTO_LOADED = "cs160.brandonchinn178.smart_elect.PHOTO_LOADED";
 
     @Override
     public void onMessageReceived(MessageEvent messageEvent) {
         String value = new String(messageEvent.getData(), StandardCharsets.UTF_8);
+        Log.d("watchListener", "received: " + value);
         switch (messageEvent.getPath()) {
             case START_CANDIDATES:
                 handleCandidates(value);
@@ -29,12 +31,7 @@ public class WatchListenerService extends WearableListenerService {
     private void handleCandidates(String data) {
         Intent intent = new Intent(this, DelegateActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        if (data.equals("current")) {
-            intent.putExtra("IS_CURRENT", true);
-        } else {
-            intent.putExtra("IS_CURRENT", false);
-            intent.putExtra("ZIP_CODE", Integer.parseInt(data));
-        }
+        intent.putExtra("DATA", data);
         startActivity(intent);
     }
 }

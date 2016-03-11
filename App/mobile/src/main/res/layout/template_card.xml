@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="10dp"
-    android:layout_marginBottom="@dimen/default_margin"
+    android:layout_marginBottom="10dp"
     android:background="@drawable/card_background"
     >
 
@@ -14,10 +14,11 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
         android:adjustViewBounds="true"
+        android:layout_gravity="center_vertical"
         />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
@@ -31,6 +32,8 @@
         <TextView android:id="@+id/tweet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:maxLines="3"
+            android:ellipsize="end"
             android:textSize="12sp"
             android:textColor="@color/gray"
             />
@@ -38,12 +41,18 @@
         <TextView android:id="@+id/website"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textSize="12sp"
             />
 
         <TextView android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textSize="12sp"
             />
 
         <LinearLayout
@@ -56,8 +65,8 @@
             <ImageButton android:id="@+id/website_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/default_margin"
-                android:background="@color/darkBlue"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/button_background"
                 android:src="@drawable/website_icon"
                 android:onClick="openWebsite"
                 />
@@ -65,8 +74,8 @@
             <ImageButton android:id="@+id/email_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/default_margin"
-                android:background="@color/darkBlue"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/button_background"
                 android:src="@drawable/email_icon"
                 android:onClick="openMail"
                 />
@@ -74,7 +83,7 @@
             <ImageButton android:id="@+id/info_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/darkBlue"
+                android:background="@drawable/button_background"
                 android:src="@drawable/info_icon"
                 android:onClick="startDetailedActivity"
                 />

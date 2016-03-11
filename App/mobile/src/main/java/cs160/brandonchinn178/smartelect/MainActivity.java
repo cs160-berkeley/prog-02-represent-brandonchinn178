@@ -26,12 +26,14 @@ public class MainActivity extends AppCompatActivity {
             try {
                 zipCode = Integer.parseInt(zipCodeInput.getText().toString());
             } catch (NumberFormatException e) {
-                zipCodeInput.setError(getString(R.string.zip_code_error));
+                zipCodeInput.setError(getString(R.string.zip_code_input_error));
                 return;
             }
 
-            // check validity of zip code
-            // if (not valid) zipCodeInput.setError(getString(R.string.zip_code_error));
+            if (!ZipCode.isValid(this, zipCode)) {
+                zipCodeInput.setError(getString(R.string.zip_code_input_error));
+                return;
+            }
 
             intent.putExtra("ZIP_CODE", zipCode);
         }

@@ -3,5 +3,5 @@
     <string name="title_activity_votes">VotesActivity</string>
     <string name="obama_label">Obama (D)</string>
     <string name="romney_label">Romney (R)</string>
-    <string name="votes_title">2012 Election</string>
+    <string name="election_results_title">2012 Election</string>
 </resources>

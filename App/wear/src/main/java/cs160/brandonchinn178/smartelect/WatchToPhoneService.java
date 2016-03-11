@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.util.Log;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
@@ -68,7 +69,7 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
                     nodes = getConnectedNodesResult.getNodes();
                     switch (extras.getString("PATH")) {
                         case "detailed":
-                            sendMessage("/start_detailed", "Dianne Feinstein");
+                            sendMessage("/start_detailed", extras.getString("ID"));
                             break;
                         case "random":
                             sendMessage("/start_random", "");
@@ -84,6 +85,7 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
     public void onConnectionSuspended(int i) {}
 
     private void sendMessage(final String path, final String text) {
+        Log.d("watchToPhone", "send: " + text);
         for (Node node : nodes) {
             Wearable.MessageApi.sendMessage(mWatchApiClient, node.getId(), path, text.getBytes());
         }

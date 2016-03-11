@@ -1,6 +1,7 @@
 package cs160.brandonchinn178.smartelect;
 
 import android.content.Intent;
+import android.util.Log;
 
 import com.google.android.gms.wearable.MessageEvent;
 import com.google.android.gms.wearable.WearableListenerService;
@@ -15,6 +16,7 @@ public class PhoneListenerService extends WearableListenerService {
     @Override
     public void onMessageReceived(MessageEvent messageEvent) {
         String data = new String(messageEvent.getData());
+        Log.d("phoneListener", "received: " + data);
         switch (messageEvent.getPath()) {
             case START_DETAILED:
                 handleDetailed(data);
@@ -31,14 +33,14 @@ public class PhoneListenerService extends WearableListenerService {
     private void handleDetailed(String data) {
         Intent intent = new Intent(this, DetailedActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.putExtra("name", data);
+        intent.putExtra("DELEGATE_ID", data);
         startActivity(intent);
     }
 
     private void handleRandom(String data) {
         Intent intent = new Intent(this, CongressionalActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.putExtra("isRandom", true);
+        intent.putExtra("IS_RANDOM", true);
         startActivity(intent);
     }
 }

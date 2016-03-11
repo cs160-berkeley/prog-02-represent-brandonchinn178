@@ -2,15 +2,23 @@ package cs160.brandonchinn178.smartelect;
 
 import android.app.Service;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.util.Log;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.wearable.Asset;
 import com.google.android.gms.wearable.Node;
 import com.google.android.gms.wearable.NodeApi;
+import com.google.android.gms.wearable.PutDataRequest;
 import com.google.android.gms.wearable.Wearable;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +27,6 @@ import java.util.List;
  */
 public class PhoneToWatchService extends Service implements GoogleApiClient.ConnectionCallbacks {
     public static final String START_CANDIDATES = "/start_candidates";
-    public static final String START_VOTES = "/start_votes";
 
     private GoogleApiClient mApiClient;
     private List<Node> nodes = new ArrayList<>();
@@ -62,17 +69,14 @@ public class PhoneToWatchService extends Service implements GoogleApiClient.Conn
                 @Override
                 public void onResult(NodeApi.GetConnectedNodesResult getConnectedNodesResult) {
                     if (extras == null) {
+                        _this.stopSelf();
                         return;
                     }
 
-                    nodes = getConnectedNodesResult.getNodes();
-                    switch (extras.getString("PATH")) {
-                        case "candidates":
-                            if (extras.getBoolean("IS_CURRENT")) {
-                                sendMessage(START_CANDIDATES, "current");
-                            } else {
-                                sendMessage(START_CANDIDATES, Integer.toString(extras.getInt("ZIP_CODE")));
-                            }
+                    switch(extras.getString("PATH")) {
+                        case "start_watch":
+                            nodes = getConnectedNodesResult.getNodes();
+                            sendMessage(START_CANDIDATES, extras.getString("DATA"));
                             break;
                     }
                     _this.stopSelf();
@@ -84,6 +88,7 @@ public class PhoneToWatchService extends Service implements GoogleApiClient.Conn
     public void onConnectionSuspended(int i) {}
 
     private void sendMessage(final String path, final String text ) {
+        Log.d("phoneToWatch", "send: " + text);
         for (Node node : nodes) {
             Wearable.MessageApi.sendMessage(mApiClient, node.getId(), path, text.getBytes());
         }

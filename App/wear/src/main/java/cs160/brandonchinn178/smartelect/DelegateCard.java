@@ -1,6 +1,7 @@
 package cs160.brandonchinn178.smartelect;
 
 import android.app.Fragment;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,15 +14,17 @@ import java.io.Serializable;
  * Created by Brandon on 2/24/16.
  */
 public class DelegateCard implements Serializable {
+    public String id;
     public boolean isSenator;
     public String name;
     public String party;
-    public String photoUrl;
+    public Drawable image;
 
-    public DelegateCard(String name, String party, String photoUrl, boolean isSenator) {
+    public DelegateCard(String id, String name, String party, boolean isSenator) {
+        this.id = id;
         this.isSenator = isSenator;
         this.name = name;
         this.party = party;
-        this.photoUrl = photoUrl;
+        this.image = null;
     }
 }

@@ -35,7 +35,8 @@ captures/
 .DS_Store
 
 # my files
+Report/
 Phase\ A.pdf
 graphics.ai
-Catnip\ Example/
 !Apk/*.apk
+*.properties
