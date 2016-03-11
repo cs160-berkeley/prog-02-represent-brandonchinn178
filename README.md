@@ -8,7 +8,7 @@ Brandon Chinn ([brandonchinn178@berkeley.edu](mailto:brandonchinn178@berkeley.ed
 
 ## Demo Video
 
-See [my demo video here]()
+See [my demo video here](https://youtu.be/xwzn7pA6EeA)
 
 ## Screenshots
 
